@@ -2,7 +2,7 @@
 const int switchPin = 8;
 const int switchPin02 = 7
 int servoAngle = 0;
-float servoSpeed = 0.5;
+float servoSpeed = 0.25;
 
 void setup() {
   pinMode(switchPin, INPUT);
