@@ -6,7 +6,7 @@ float servoSpeed = 0.5;
 
 void setup() {
   pinMode(switchPin, INPUT);
-  myservo.attach(9);
+  myservo.attach(8);
   myservo.write(servoAngle);
 
 
