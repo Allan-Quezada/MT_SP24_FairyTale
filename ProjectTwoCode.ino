@@ -41,8 +41,6 @@ void setup() {
   pinMode(switchPin, OUTPUT);
   myservo.attach(7);
   myservo.write(0);
-
-
 }
 
 void loop() {
@@ -54,9 +52,9 @@ void loop() {
         for (pos = 0; pos < 180; pos += 1) {
            myservo.write(pos);
           delay(18);
+        }
+      }
     }
-}
-    }
-prevSwitchVal = switchVal;
-}
+    prevSwitchVal = switchVal;
+  }
 }
