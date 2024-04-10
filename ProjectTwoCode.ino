@@ -24,8 +24,7 @@ bool A = false;
 bool B = false;
 bool B2 = false;
 bool C = false;
-bool D = false;
-// Initializing all of the variables we will need.
+bool D = false; // Initializing all of the variables we will need.
 
 void setup() {  
   pinMode(switchPinA, INPUT); // Previously had it at "OUTPUT". I'm not sure if it will make a difference, but I'm marking it now if it does.
