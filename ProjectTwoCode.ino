@@ -39,7 +39,6 @@ void setup() {
   myservoC.write(0);
   myservoD.attach(4);
   myservoD.write(0); // Pin # and starting position for the Servos
-
 }
 
 void loop() {
