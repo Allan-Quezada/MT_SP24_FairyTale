@@ -6,7 +6,7 @@ Servo myservoC;
 Servo myservoD;
 const int switchPinA = 8;
 const int switchPinB = 9;
-const int switchPinC = 10
+const int switchPinC = 10;
 const int switchPinD = 11; // Pin # for alligator clips 
 int switchValA = 0;
 int switchValB = 0;
@@ -16,7 +16,7 @@ int prevSwitchValA = 0;
 int prevSwitchValB = 0;
 int prevSwitchValC = 0;
 int prevSwitchValD = 0;
-int posA = 0;
+int posA = 180;
 int posB = 0;
 int posC = 0;
 int posD = 0;
@@ -32,7 +32,7 @@ void setup() {
   pinMode(switchPinC, INPUT);
   pinMode(switchPinD, INPUT);
   myservoA.attach(7);
-  myservoA.write(0);
+  myservoA.write(180);
   myservoB.attach(6);
   myservoB.write(0);
   myservoC.attach(5);
@@ -46,30 +46,32 @@ void loop() {
 
   if (switchValA != prevSwitchValA) {
     if (switchValA == HIGH){
-      if (posA == 0){
+      if (posA == 180){
         A = true;
-        for (posA = 0; posA < 180; posA += 1) {
+        for (posA = 180; posA > 30; posA -= 1) {
           myservoA.write(posA);
-          delay(18);
+          delay(70);
+          if (A == true) {
+            switchValB = digitalRead(switchPinB);
+            if (switchValB != prevSwitchValB) {
+              if (switchValB == HIGH){
+               B = true;
+               if (posB == 0){
+                for (posB = 0; posB < 180; posB += 1) {
+                  myservoB.write(posB);
+                  delay(3);
     }
 }
     }
 }
 // ----------------------------------------------------------------------------
-  if (A == true) {
-    switchValB = digitalRead(switchPinB);
-    if (switchValB != prevSwitchValB) {
-      if (switchValB == HIGH){
-        B = true;
-        if (posB == 0){
-          for (posB = 0; posB < 180; posB += 1) {
-            myservoB.write(posB);
-            delay(18);
+
     }
 }
     }  
 }
-}
+  }
+
 // ----------------------------------------------------------------------------
   if (B == true) {
     switchValC = digitalRead(switchPinC);
@@ -112,4 +114,3 @@ void loop() {
   prevSwitchValC = switchValC;
   prevSwitchValD = switchValD;
 }
-
