@@ -1,60 +1,60 @@
 #include <Servo.h>
 
-Servo myservo00;
-Servo myservo01;
-Servo myservo02;
-Servo myservo03;
-const int switchPin00 = 8;
-const int switchPin01 = 9;
-const int switchPin02 = 10
-const int switchPin03 = 11;
-int switchVal00 = 0;
-int switchVal01 = 0;
-int switchVal02 = 0;
-int switchVal03 = 0;
-int prevSwitchVal00 = 0;
-int prevSwitchVal01 = 0;
-int prevSwitchVal02 = 0;
-int prevSwitchVal03 = 0;
-int pos00 = 0;
-int pos01 = 0;
-int pos02 = 0;
-int pos03 = 0;
+Servo myservoA;
+Servo myservoB;
+Servo myservoC;
+Servo myservoD;
+const int switchPinA = 8;
+const int switchPinB = 9;
+const int switchPinC = 10
+const int switchPinD = 11;
+int switchValA = 0;
+int switchValB = 0;
+int switchValC = 0;
+int switchValD = 0;
+int prevSwitchValA = 0;
+int prevSwitchValB = 0;
+int prevSwitchValC = 0;
+int prevSwitchValD = 0;
+int posA = 0;
+int posB = 0;
+int posC = 0;
+int posD = 0;
 
 void setup() {  
-  pinMode(switchPin00, OUTPUT);
-  myservo00.attach(7);
-  myservo00.write(0);
-  myservo01.attach(6);
-  myservo01.write(0);
+  pinMode(switchPinA, OUTPUT);
+  myservoA.attach(7);
+  myservoA.write(0);
+  myservoB.attach(6);
+  myservoB.write(0);
 
 }
 
 void loop() {
-  switchVal00 = digitalRead(switchPin00);
+  switchValA = digitalRead(switchPinA);
 
-  if (switchVal00 != prevSwitchVal00) {
-    if (switchVal00 == HIGH){
-      if (pos00 == 0){
-        for (pos00 = 0; pos00 < 180; pos00 += 1) {
-          myservo00.write(pos00);
+  if (switchValA != prevSwitchValA) {
+    if (switchValA == HIGH){
+      if (posA == 0){
+        for (posA = 0; posA < 180; posA += 1) {
+          myservoA.write(posA);
           delay(18);
     }
 }
     }
-prevSwitchVal00 = switchVal00;
+prevSwitchValA = switchValA;
 }
 
-  switchVal01 = digitalRead(switchPin01);
-  if (switchVal01 != prevSwitchVal01) {
-    if (switchVal01 == HIGH){
-      if (pos01 == 0){
-        for (pos01 = 0; pos01 < 180; pos01 += 1) {
-           myservo01.write(pos01);
+  switchValB = digitalRead(switchPinB);
+  if (switchValB != prevSwitchValB) {
+    if (switchValB == HIGH){
+      if (posB == 0){
+        for (posB = 0; posB < 180; posB += 1) {
+           myservoB.write(posB);
           delay(18);
     }
 }
     }  
-prevSwitchVal01 = switchVal01;
+prevSwitchValB = switchValB;
 }
 }
