@@ -59,7 +59,7 @@ void loop() {
                if (posB == 0){
                 for (posB = 0; posB < 180; posB += 1) {
                   myservoB.write(posB);
-                  delay(3);
+                  delay(6);
     }
 }
     }
@@ -85,13 +85,13 @@ void loop() {
 // ----------------------------------------------------------------------------
   if (C == true) {
     switchValB = digitalRead(switchPinB);
-    if (switchValB != prevSwitchValB) {
+    if (switchValB == prevSwitchValB) {
        if (switchValB == LOW){
         B2 = true;
         if (posB == 180){
-          for (posB = 180; posB < 0; posB -= 1) {
+          for (posB = 180; posB > 0; posB -= 1) {
             myservoB.write(posB);
-            delay(18);
+            delay(6);
     }
 }
     }  
