@@ -83,31 +83,29 @@ void loop() {
 }
     }  
 // ----------------------------------------------------------------------------
-  if (C == true) {
-    switchValB = digitalRead(switchPinB);
-    if (switchValB == prevSwitchValB) {
-       if (switchValB == LOW){
-        B2 = true;
-        if (posB == 180){
-          for (posB = 180; posB > 0; posB -= 1) {
-            myservoB.write(posB);
-            delay(6);
-    }
-}
-    }  
-}
-}
-// ----------------------------------------------------------------------------
-  if (B2 = true) {
+  if (C = true) {
     switchValD = digitalRead(switchPinD);
     if (switchValD != prevSwitchValD) {
       if (switchValD == HIGH){
         D = true;
         myservoD.write(180);
+        if (D = true){
+          switchValB = digitalRead(switchPinB);
+          if (switchValB == prevSwitchValB) {
+            if (switchValB == LOW){
+              if (posB == 180){
+                for (posB = 180; posB > 0; posB -= 1) {
+                  myservoB.write(posB);
+                  delay(6);
+          }
+          }
+          }
+    }
 
     }
 }
     }  
+  }
 // ----------------------------------------------------------------------------
   prevSwitchValA = switchValA;
   prevSwitchValB = switchValB;
