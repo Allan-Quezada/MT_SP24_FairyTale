@@ -1,60 +1,114 @@
-// #include <Servo.h>
-// const int switchPin = 8;
-// const int switchPin02 = 7
-// int servoAngle = 0;
-// float servoSpeed = 0.25;
-
-// void setup() {
-//   pinMode(switchPin, INPUT);
-//   myservo.attach(9);
-//   myservo.write(servoAngle);
-
-
-// }
-
-// void loop() {
-//   if (digitalRead(switchPin) == HIGH) {
-//     servoAngle += servoSpeed;
-//   } else {
-//     servoAngle = 0;
-//   }
-//   myservo.write(servoAngle);
-  
-//   if (digitialRead(switchPin02) == HIGH) {
-//     servoAngle.write(180);
-//   } else {
-//     servoAngle = 0;
-//   }
-// }
-
-// updated working code below
-
 #include <Servo.h>
 
-Servo myservo;
-const int switchPin = 8;
-int switchVal = 0;
-int prevSwitchVal = 0;
-int pos = 0;
+Servo myservoA;
+Servo myservoB;
+Servo myservoC;
+Servo myservoD;
+const int switchPinA = 8;
+const int switchPinB = 9;
+const int switchPinC = 10;
+const int switchPinD = 11; // Pin # for alligator clips 
+int switchValA = 0;
+int switchValB = 0;
+int switchValC = 0;
+int switchValD = 0;
+int prevSwitchValA = 0;
+int prevSwitchValB = 0;
+int prevSwitchValC = 0;
+int prevSwitchValD = 0;
+int posA = 180;
+int posB = 0;
+int posC = 0;
+int posD = 0;
+bool A = false;
+bool B = false;
+bool B2 = false;
+bool C = false;
+bool D = false; // Initializing all of the variables we will need.
 
-void setup() {
-  pinMode(switchPin, OUTPUT);
-  myservo.attach(7);
-  myservo.write(0);
+void setup() {  
+  pinMode(switchPinA, INPUT); // Previously had it at "OUTPUT". I'm not sure if it will make a difference, but I'm marking it now if it does.
+  pinMode(switchPinB, INPUT);
+  pinMode(switchPinC, INPUT);
+  pinMode(switchPinD, INPUT);
+  myservoA.attach(7);
+  myservoA.write(180);
+  myservoB.attach(6);
+  myservoB.write(0);
+  myservoC.attach(5);
+  myservoC.write(0);
+  myservoD.attach(4);
+  myservoD.write(0); // Pin # and starting position for the Servos
 }
 
 void loop() {
-  switchVal = digitalRead(switchPin);
+  switchValA = digitalRead(switchPinA);
 
-  if (switchVal != prevSwitchVal) {
-    if (switchVal == HIGH){
-      if (pos == 0){
-        for (pos = 0; pos < 180; pos += 1) {
-           myservo.write(pos);
-          delay(18);
-        }
-      }
+  if (switchValA != prevSwitchValA) {
+    if (switchValA == HIGH){
+      if (posA == 180){
+        A = true;
+        for (posA = 180; posA > 30; posA -= 1) {
+          myservoA.write(posA);
+          delay(70);
+          if (A == true) {
+            switchValB = digitalRead(switchPinB);
+            if (switchValB != prevSwitchValB) {
+              if (switchValB == HIGH){
+               B = true;
+               if (posB == 0){
+                for (posB = 0; posB < 180; posB += 1) {
+                  myservoB.write(posB);
+                  delay(6);
     }
-    prevSwitchVal = switchVal;
+}
+    }
+}
+// ----------------------------------------------------------------------------
+
+    }
+}
+    }  
+}
   }
+
+// ----------------------------------------------------------------------------
+  if (B == true) {
+    switchValC = digitalRead(switchPinC);
+    if (switchValC != prevSwitchValC) {
+      if (switchValC == HIGH){
+        C = true;
+        myservoC.write(180);
+    }
+}
+    }  
+// ----------------------------------------------------------------------------
+  if (C = true) {
+    switchValD = digitalRead(switchPinD);
+    if (switchValD != prevSwitchValD) {
+      if (switchValD == HIGH){
+        D = true;
+        myservoD.write(180);
+        if (D = true){
+          switchValB = digitalRead(switchPinB);
+          if (switchValB == prevSwitchValB) {
+            if (switchValB == LOW){
+              if (posB == 180){
+                for (posB = 180; posB > 0; posB -= 1) {
+                  myservoB.write(posB);
+                  delay(6);
+          }
+          }
+          }
+    }
+
+    }
+}
+    }  
+  }
+// ----------------------------------------------------------------------------
+  prevSwitchValA = switchValA;
+  prevSwitchValB = switchValB;
+  prevSwitchValC = switchValC;
+  prevSwitchValD = switchValD;
 }
