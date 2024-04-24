@@ -48,9 +48,9 @@ void loop() {
     if (switchValA == HIGH){
       if (posA == 180){
         A = true;
-        for (posA = 180; posA > 30; posA -= 1) {
+        for (posA = 180; posA > 0; posA -= 1) {
           myservoA.write(posA);
-          delay(70);
+          delay(50);
           if (A == true) {
             switchValB = digitalRead(switchPinB);
             if (switchValB != prevSwitchValB) {
